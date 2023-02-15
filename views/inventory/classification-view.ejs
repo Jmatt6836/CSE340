@@ -1,0 +1,36 @@
+<% if (title) { %>
+    <h1><%= title %></h1>
+    <% } else {
+      res.redirect('/')
+    } %>
+
+<% if (message) { %>
+    <p class="notice"><%= message %></p>
+    <% } %>
+
+<% if(data.length > 0){%>
+    <ul id="inv-display">
+        <%
+        data.forEach(vehicle => {%>
+        <li>
+            <a href="../../inv/detail<%= vehicle.inv_id %>" 
+                title="View <%= vehicle.inv_make %> <%= vehicle.inv_model %> details">
+                <img src="<%= vehicle.inv_thumbnail %>" 
+                alt="Image of <%= vehicle.inv_make %> <%= vehicle.inv_model %> on CSE Motors" />
+            </a>
+            <div class="namePrice">
+                <hr />
+                <h2>
+                    <a href="../../inv/detail/<%= vehicle.inv_id %>" 
+                        title="View <%= vehicle.inv_make %> <%= vehicle.inv_model %> details"><%= vehicle.inv_make %> <%= vehicle.inv_model %>
+                    </a>
+                </h2>
+                <span>$<%= new Intl.NumberFormat('en-US').format(vehicle.in_price) %>
+                </span>
+            </div>
+        </li>
+        <% }) %>
+    </ul>
+    <% } else { // Display no vehicles found message %>
+        <p class="notice">Sorry, no matching vehicles could be found.</p>
+        <% } %>

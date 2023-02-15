@@ -4,3 +4,139 @@
 *:after {
   box-sizing: border-box;
 }
+@import url('https://fonts.googleapis.com/css2?family=Lora&family=Radio+Canada&family=Roboto&display=swap');
+
+body{
+  max-width: 400px;
+  margin: auto;
+  background-image: url(../images/site/checkerboard.jpg);
+  font-family: 'Roboto', sans-serif;
+  
+}
+
+#wrapper{
+  background-color: white;
+  border: 3px solid lightblue;
+  border-radius: 10px;
+}
+.siteName{
+  text-decoration: none;
+  font-size: 40px;
+  color: black;
+
+}
+a:link{
+  text-decoration: none;
+  color: black;
+}
+a:visited{
+  text-decoration: none;
+  color: black;
+}
+a:hover{
+  text-decoration: none;
+}
+a:active{
+  text-decoration: none;
+}
+li a:link{
+  text-decoration: none;
+  color: white;
+}
+li a:visited{
+  text-decoration: none;
+  color: white;
+}
+li a:hover{
+  text-decoration: none;
+}
+li a:active{
+  text-decoration: none;
+}
+
+#tools{
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 5px;
+}
+main{
+  background-color: white;
+}
+
+nav ul{
+  list-style: none;
+  text-decoration: none;
+  display: flex;
+  justify-content: space-evenly;
+  background-color: black;
+  height: 50px;
+  font-size: 20px;
+  padding-top:10px ;
+  
+}
+
+
+#hero{
+  position: relative;
+  text-align: center;
+  color: black;
+}
+.carimg{
+  max-width: 394px;
+  
+}
+
+div.hero-banner{
+  background-color: rgb(255, 255, 255, .5);
+ max-width: 150px;
+ position: absolute;
+ top: 65px;
+ left: 10px;
+ font-size: 17px;
+ line-height: 10px;
+}
+
+.order-butt{
+  background-color: lightblue;
+  height: 30px;
+  padding-top: 10px;
+  border-radius: 10px;
+  max-width: 100px;
+  margin: auto;
+}
+
+div.upgrades{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  
+}
+
+.upimg{
+  background-color: lightblue;
+  border: 40px 100px;
+  display: inline-block;
+}
+
+@media screen and (min-width: 500px)  {
+  body{
+    max-width: 750px;
+
+  }
+  #main-body{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+  }
+  #hero{
+    grid-column: 1/3;
+
+  }
+  #review{
+    grid-column: 2/3;
+  }
+  .upgrades{
+    grid-column: 1/2;
+    grid-row: 2/3;
+  }
+}
