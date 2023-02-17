@@ -54,6 +54,10 @@ li a:active{
   text-decoration: none;
 }
 
+h2 a:link{
+  color: black;
+}
+
 #tools{
   display: flex;
   justify-content: flex-end;
