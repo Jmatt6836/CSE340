@@ -39,22 +39,25 @@ a:hover{
 a:active{
   text-decoration: none;
 }
-li a:link{
+a.navlink:link{
   text-decoration: none;
   color: white;
 }
-li a:visited{
+ a.navlink:visited{
   text-decoration: none;
   color: white;
 }
-li a:hover{
+.navlink a:hover{
   text-decoration: none;
 }
-li a:active{
+.navlink a:active{
   text-decoration: none;
 }
 
 h2 a:link{
+  color: black;
+}
+.vehiclelink{
   color: black;
 }
 
@@ -120,6 +123,58 @@ div.upgrades{
   background-color: lightblue;
   border: 40px 100px;
   display: inline-block;
+}
+
+#inv-display{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  gap: 20px;
+}
+
+#inv-display li{
+  list-style-type: none;
+  
+}
+
+.vehicleview{
+  border: 1px solid black;
+  
+  max-width: 300px;
+}
+
+.vehicleimg{
+  width: 299px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+form label {
+  display: block;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+form input {
+  margin-bottom: 2rem;
+  width: 100%;
+  max-width: 400px;
+}
+textarea {
+  min-width: 20rem;
+  min-height: 8rem;
+}
+.select_box select{
+  margin-bottom: 2rem;
+  min-width: 10rem;
+}
+.back_link {
+  margin: 2rem 0;
+}
+.back_link:hover {
+  color: #4CAECF;
 }
 
 @media screen and (min-width: 500px)  {

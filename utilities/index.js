@@ -6,11 +6,11 @@ const Util = {}
  ************************** */
 Util.buildNav = function (data) {
   let list = "<ul>"
-  list += '<li><a href="/" title="Home page">Home</a></li>'
+  list += '<li><a class="navlink" href="/" title="Home page">Home</a></li>'
   data.rows.forEach((row) => {
     list += "<li>"
     list +=
-      '<a href="/inv/type/' + row.classification_id + '" title="See our inventory of ' + row.classification_name + ' vehicles">' + row.classification_name + "</a>"
+      '<a class="navlink" href="/inv/type/' + row.classification_id + '" title="See our inventory of ' + row.classification_name + ' vehicles">' + row.classification_name + "</a>"
     list += "</li>"
   })
   list += "</ul>"
@@ -33,11 +33,23 @@ Util.buildpage = async function (vehicle) {
     <p class="car-price">Price: $${new Intl.NumberFormat('en-US').format(vehicle.inv_price)}</p>
     <p class="car-description">Description: ${vehicle.inv_description}</p>
     <p class="car-color">Color: ${vehicle.inv_color}</p>
-    <p class="car-mileage">Mileage: ${vehicle.inv_miles}</p>
+    <p class="car-mileage">Mileage: ${new Intl.NumberFormat('en-US').format(vehicle.inv_miles)}</p>
     </div>
   `
   return html
 }
+
+Util.buildClassDropDown = async () => {
+  let data = await invModel.getClassifications();
+  let select = `<label for="classificationName">Classification</label>`;
+  select += `<select name="classification_id" id="classificationName"> `;
+
+  data.rows.forEach((row) => {
+    select += `<option value="${row.classification_id}">${row.classification_name}</option>`;
+  });
+  select += "</select>";
+  return select;
+};
 
 
 module.exports = Util

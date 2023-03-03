@@ -1,0 +1,20 @@
+<% if (title) { %>
+    <h1 class="form-title"><%= title %></h1>
+    <% } else { res.redirect('/'); } %>
+    
+    <!-- Display message in case of error -->
+    <% if (message) { %>
+    <p class="notice"><%= message %></p>
+    <% } %>
+    
+    <div class="form_div">
+      <form class="classification_form" action="add-classification" method="post">
+        <h2>Classification Name</h2>
+        <p>
+          Name may not contain a space or special character of any kind.
+        </p>
+          <input name="classification_name" id="classificationName" type="text" pattern="[a-zA-Z0-9]+" required/>
+        <button type="submit">Add Classification</button>
+      </form>
+    </div>
+  <a class="back_link" href="manage-inv">to inventory management</a>

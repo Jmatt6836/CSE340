@@ -1,0 +1,32 @@
+<% if (title) { %>
+    <h1 class="form_title"><%= title %></h1>
+    <% } else { res.redirect('/') } %>
+    <!-- Display errors in case of error -->
+    <% if (errors) { %>
+      <ul class="notice">
+     <% errors.array().forEach(error => { %>
+       <li><%= error.msg %></li>
+    <%  }) %>
+     </ul>
+    <% } %>
+    <!-- Render page in case of success -->
+    <form class="login_form" action="/client/register" method="post">
+      <div class="form_input">
+        <label for="firstname">First name:</label>
+        <input type="text" name="client_firstname" id="firstname" placeholder="First name" required class="input_text">
+      </div>
+      <div class="form_input">
+        <label for="lastname">Last name:</label>
+        <input type="text" name="client_lastname" id="lastname" placeholder="Last name" required class="input_text" >
+      </div>
+      <div class="form_input">
+        <label for="email">Email:</label>
+        <input type="email" name="client_email" id="email" placeholder="csemotors@email.com" required class="input_text">
+      </div>
+      <div class="form_input">
+        <br><span>Passwords must be at least 12 characters and contain at least 1 number, 1 capital letter and 1 special character</span><br>
+        <label for="password">Password:</label>
+        <input type="password" name="client_password" id="password" placeholder="Password" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{12,}$" required class="input_text">
+      </div>
+        <button type="submit" class="submit_button">Register</button>
+    </form>

@@ -1,0 +1,13 @@
+<% if (title) { %>
+    <h1><%= title %></h1>
+    <% } else { res.redirect('/'); } %>
+  <!-- Display message in case of error -->
+  <% if (message) { %>
+  <p class="notice"><%= message %></p>
+  <% } %>
+  <div class="admin">
+    <h2>
+      <a href="add-classification">Add New Classification</a>
+    </h2>
+    <h2><a href="add-vehicle">Add New Vehicle</a></h2>
+  </div>
