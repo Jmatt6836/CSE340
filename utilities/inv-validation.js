@@ -13,6 +13,7 @@ validate.classificationRules = () => {
         .trim()
         .escape()
         .isLength({ min: 2 })
+        .matches(/^[a-zA-Z0-9]+$/) 
         .withMessage("A valid classification should be used.")
         .custom(async (classification_name) => {
             const classificationExists = await invModel.checkClassification(classification_name)
@@ -55,7 +56,7 @@ validate.vehicleRules = () => {
       // firstname is required and must be string
       body("inv_make")
         .trim()
-        .isLength({ min: 3 })
+        .matches(/^[a-zA-Z]{3,}$/)
         .withMessage("Please provide the vehicle make."),
   
       // lastname is required and must be string
@@ -63,42 +64,40 @@ validate.vehicleRules = () => {
         .trim()
         .escape()
         .isLength({ min: 1 })
+        .matches(/^[a-zA-Z0-9]{1,}$/)
         .withMessage("Please provide the vehicle model."),
   
       body("inv_description")
         .trim()
         .escape()
-        .isLength({min: 3})
+        .matches(/^.{10,1000}$/)
         .withMessage("Please provide a vehicle description."),
   
       // password is required and must be strong password
       body("inv_price")
         .trim()
         .escape()
-        .isLength({ min: 1 })
-        .isNumeric()
-        .withMessage("Please provide the vehicle price"),
+        .isDecimal()
+      .withMessage("Price must be a decimal number and at least 3 digits to represent dollars."),
 
       // valid email is required and cannot already exist in the DB
       body("inv_year")
         .trim()
         .escape()
-        .isNumeric()
-        .isLength({ min: 4 })
+        .matches(/^[0-9]{4,}$/)
         .withMessage("Please provide the vehicle year."),
               // valid email is required and cannot already exist in the DB
       body("inv_miles")
       .trim()
       .escape()
       .isNumeric()
-      .isLength({ min: 1 })
-      .withMessage("Please provide the number of miles."),
+      .withMessage("Vehicle miles must be at least 1 digit."),
 
     // valid email is required and cannot already exist in the DB
     body("inv_color")
       .trim()
       .escape()
-      .isLength({ min: 2})
+      .matches(/^.{1,}$/)
       .withMessage("Please provide the vehicle color."),
   ]
 }
