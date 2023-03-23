@@ -10,10 +10,8 @@
     <div class="form_div">
       <form class="classification_form" action="add-classification" method="post">
         <h2>Classification Name</h2>
-        <p>
-          Name may not contain a space or special character of any kind.
-        </p>
-          <input name="classification_name" id="classificationName" type="text" pattern="[a-zA-Z0-9]+" required>
+        
+          <input name="classification_name" id="classificationName" type="text" placeholder="e.g. Truck" required pattern="^[a-zA-Z]{3,12}$">
         <button type="submit">Add Classification</button>
       </form>
     </div>

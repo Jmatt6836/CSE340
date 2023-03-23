@@ -16,27 +16,28 @@
         method="post">
         <div class="select_box"><%-selectOptions-%></div>
           <label for="invMake">Make</label>
-          <input name="inv_make" id="invMake" >
+          <input name="inv_make" id="invMake" placeholder="Min of 3 characters" required pattern="^[a-zA-Z]{3,}$" value="<%= locals.inv_make %>" >
           <label for="invModel">Model</label>
-          <input name="inv_model" id="invModel" >
+          <input name="inv_model" id="invModel" placeholder="Min of 3 characters" required pattern="^[a-zA-Z]{3,}$" value="<%= locals.inv_model %>" >
           <label for="invDescription">Description</label>
           <textarea
             name="inv_description"
             id="invDescription"
             form="addVehicle"
-          ></textarea>
+            required
+          ><%= locals.inv_description %></textarea>
           <label for="invImage">Image Path</label>
           <input name="inv_image" id="invImage" value="/images/vehicles/no-image.png">
           <label for="invThumbnail">Thumbnail Path</label>
           <input name="inv_thumbnail" id="invThumbnail" value="/images/vehicles/no-image.png" >
           <label for="invPrice">Price</label>
-          <input name="inv_price" id="invPrice" >
+          <input name="inv_price" id="invPrice" placeholder="e.g. 2500" required pattern="^\d+(.\d{1,2})?$" value="<%= locals.inv_price %>" >
           <label for="invYear">Year</label>
-          <input name="inv_year" id="invYear" >
+          <input name="inv_year" id="invYear" placeholder="e.g. 2005" required pattern="^[12][0-9]{3}$" value="<%= locals.inv_year %>" >
           <label for="invMiles">Miles</label>
-          <input name="inv_miles" id="invMiles" >
+          <input name="inv_miles" id="invMiles" placeholder="e.g. 19000" required   pattern="^\d+(\d{1,2})?$" value="<%= locals.inv_miles %>" >
           <label for="invColor">Color</label>
-          <input name="inv_color" id="invColor" >
+          <input name="inv_color" id="invColor" placeholder="e.g. blue" required pattern="^[a-zA-Z]{3,}$" value="<%= locals.inv_color %>" >
     
         <button type="submit">Add Vehicle</button>
       </form>

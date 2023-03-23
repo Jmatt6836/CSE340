@@ -3,25 +3,26 @@
     <% } else { res.redirect('/') } %>
     <!-- Display errors in case of error -->
     <% if (errors) { %>
-      <ul class="notice">
-     <% errors.array().forEach(error => { %>
-       <li><%= error.msg %></li>
-    <%  }) %>
-     </ul>
-    <% } %>
+        <ul class="notice">
+       <% errors.array().forEach(error => { %>
+         <li><%= error.msg %></li>
+      <%  }) %>
+       </ul>
+      <% } %>
     <!-- Render page in case of success -->
     <form class="login_form" action="/client/register" method="post">
       <div class="form_input">
         <label for="firstname">First name:</label>
-        <input type="text" name="client_firstname" id="firstname" placeholder="First name" required class="input_text">
+        <input type="text" name="client_firstname" id="firstname" placeholder="First name" required class="input_text" required value="<%= locals.client_firstname %>">
       </div>
       <div class="form_input">
         <label for="lastname">Last name:</label>
-        <input type="text" name="client_lastname" id="lastname" placeholder="Last name" required class="input_text" >
+        <input type="text" name="client_lastname" id="lastname" placeholder="Last name" required class="input_text" required value="<%= locals.client_lastname %>" >
       </div>
       <div class="form_input">
         <label for="email">Email:</label>
-        <input type="email" name="client_email" id="email" placeholder="csemotors@email.com" required class="input_text">
+        <input type="email" name="client_email" id="email" placeholder="csemotors@email.com" required class="input_text"
+        required value="<%= locals.client_email %>">
       </div>
       <div class="form_input">
         <br><span>Passwords must be at least 12 characters and contain at least 1 number, 1 capital letter and 1 special character</span><br>

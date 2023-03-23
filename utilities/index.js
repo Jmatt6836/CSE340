@@ -39,17 +39,19 @@ Util.buildpage = async function (vehicle) {
   return html
 }
 
-Util.buildClassDropDown = async () => {
-  let data = await invModel.getClassifications();
-  let select = `<label for="classificationName">Classification</label>`;
-  select += `<select name="classification_id" id="classificationName"> `;
-
-  data.rows.forEach((row) => {
-    select += `<option value="${row.classification_id}">${row.classification_name}</option>`;
-  });
-  select += "</select>";
-  return select;
-};
-
+Util.buildClassDropDown = async function (classification_id = null) {
+  let data = await invModel.getClassifications()
+  let list = "<select id='classification_id' name='classification_id'>"
+  list += "<option>Choose a Classification</option>"
+      data.rows.forEach((row) => {
+      list += "<option value='" + row.classification_id +"'"
+          if (classification_id != null && row.classification_id == classification_id) {
+              list += " selected "
+      }
+      list += ">" + row.classification_name + "</option>"
+  })
+  list += '</select>'
+  return list
+}
 
 module.exports = Util
