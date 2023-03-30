@@ -114,8 +114,8 @@ validate.checkVehicleData = async (req, res, next) => {
     errors = validationResult(req)
     if (!errors.isEmpty()) {
         let nav = await utilities.getNav()
-        let classifications = await inventoryModel.getClassifications()
-        let classificationMenu = await utilities.displayClassifications(classification_id)
+        let classifications = await invModel.getClassifications()
+        let classificationMenu = await utilities.buildClassDropDown(classification_id)
         res.render("../views/inventory/add-vehicle", {
             errors,
             message: null,
